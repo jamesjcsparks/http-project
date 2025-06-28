@@ -18,16 +18,13 @@
     </nav>
   </header>
   <main>
-    <h2>Early Versions</h2>
-    <p>HTTP/0.9 supported only the GET method. HTTP/1.0 and 1.1 brought MIME types, caching, and persistent connections.</p>
-    <h2>HTTP/2 Improvements</h2>
-    <ul>
-      <li>Multiplexing</li>
-      <li>Header compression</li>
-      <li>Server push</li>
-    </ul>
-    <h2>HTTP/3 and QUIC</h2>
-    <p>HTTP/3 runs on QUIC, a UDP-based protocol that solves latency and security limitations of TCP.</p>
+    <h2>Early Versions of HTTP</h2>
+    <p>The Hypertext Transfer Protocol (HTTP) began with a very simple version, HTTP/0.9, created by Tim Berners-Lee in 1989. This early version only supported the GET method and was designed to deliver plain HTML files. It was efficient for basic static content but had serious limitations. For example, it could not handle multimedia files or dynamic content, and connections were closed after each response.</p>
+    <p>As the internet grew, HTTP/1.0 was introduced in 1996, supporting new methods like POST and HEAD, along with MIME types for handling different content types. Then in 1999, HTTP/1.1 added persistent connections, caching mechanisms, pipelining, and chunked transfers. These changes greatly improved performance and scalability, making HTTP more suitable for large websites and commercial applications.</p>
+
+    <h2>From HTTP/2 to HTTP/3</h2>
+    <p>HTTP/2 came as a response to the performance bottlenecks of HTTP/1.1. Released in 2015, it brought major improvements like multiplexing, allowing multiple requests and responses to be sent in a single connection. It also introduced binary framing and header compression, which significantly reduced latency. Despite its advancements, HTTP/2 still relied on TCP, which suffered from head-of-line blocking issues.</p>
+    <p>To fix that, HTTP/3 was developed based on Google’s QUIC protocol, which runs on UDP instead of TCP. HTTP/3 improves speed and reliability by reducing handshake times and avoiding head-of-line blocking. It’s more secure by default and works especially well for mobile networks and high-latency connections. As of 2024, major browsers and platforms are adopting HTTP/3 at a rapid pace.</p>
   </main>
   <footer>
     <p>This is a class project for IT 3203. Visit the course site <a href="https://ksuweb.github.io/IT3203/" target="_blank">here</a>.</p>
