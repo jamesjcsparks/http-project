@@ -1,108 +1,48 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Milestone 2 Quiz</title>
-  <style>
-    body { font-family: Arial; padding: 20px; max-width: 800px; margin: auto; }
-    h2 { color: #333; }
-    .question { margin-bottom: 20px; }
-    .result { font-weight: bold; margin-top: 20px; }
-    button { margin-top: 20px; }
-  </style>
-</head>
-<body>
-
-  <h1>Self-Assessment Quiz</h1>
-  <form id="quizForm">
-
-    <div class="question">
-      <p>1. What does HTML stand for?</p>
-      <label><input type="radio" name="q1" value="a"> HyperText Markup Language</label><br>
-      <label><input type="radio" name="q1" value="b"> HighText Machine Language</label><br>
-      <label><input type="radio" name="q1" value="c"> HyperTabular Markup Language</label>
-    </div>
-
-    <div class="question">
-      <p>2. Which tag is used to insert a JavaScript file?</p>
-      <label><input type="radio" name="q2" value="a"> &lt;js&gt;</label><br>
-      <label><input type="radio" name="q2" value="b"> &lt;script&gt;</label><br>
-      <label><input type="radio" name="q2" value="c"> &lt;javascript&gt;</label>
-    </div>
-
-    <div class="question">
-      <p>3. CSS is used to:</p>
-      <label><input type="radio" name="q3" value="a"> Create database structure</label><br>
-      <label><input type="radio" name="q3" value="b"> Add style to a website</label><br>
-      <label><input type="radio" name="q3" value="c"> Add functionality</label>
-    </div>
-
-    <div class="question">
-      <p>4. Fill in the blank: JavaScript code is executed in the _______.</p>
-      <input type="text" name="q4">
-    </div>
-
-    <div class="question">
-      <p>5. Which of the following are valid CSS selectors? (Select all that apply)</p>
-      <label><input type="checkbox" name="q5" value="a"> .classname</label><br>
-      <label><input type="checkbox" name="q5" value="b"> #idname</label><br>
-      <label><input type="checkbox" name="q5" value="c"> *selector</label><br>
-      <label><input type="checkbox" name="q5" value="d"> ?style</label>
-    </div>
-
-    <button type="button" onclick="checkAnswers()">Submit</button>
-    <button type="button" onclick="resetQuiz()">Restart</button>
-  </form>
-
-  <div id="results" class="result"></div>
-
+  <title>Quiz - HTTP</title>
+  <link rel="stylesheet" href="style.css">
   <script>
-    function checkAnswers() {
+    function gradeQuiz() {
       let score = 0;
-      let results = "";
-      const answers = {
-        q1: "a",
-        q2: "b",
-        q3: "b",
-        q4: "browser",
-        q5: ["a", "b", "c"]
-      };
-
-      const q1 = document.querySelector('input[name="q1"]:checked')?.value;
-      const q2 = document.querySelector('input[name="q2"]:checked')?.value;
-      const q3 = document.querySelector('input[name="q3"]:checked')?.value;
-      const q4 = document.querySelector('input[name="q4"]').value.trim().toLowerCase();
-      const q5 = Array.from(document.querySelectorAll('input[name="q5"]:checked')).map(cb => cb.value);
-
-      if (q1 === answers.q1) score++;
-      results += `<p>Q1: Your answer: ${q1 || "none"} | Correct: ${answers.q1}</p>`;
-
-      if (q2 === answers.q2) score++;
-      results += `<p>Q2: Your answer: ${q2 || "none"} | Correct: ${answers.q2}</p>`;
-
-      if (q3 === answers.q3) score++;
-      results += `<p>Q3: Your answer: ${q3 || "none"} | Correct: ${answers.q3}</p>`;
-
-      if (q4 === answers.q4) score++;
-      results += `<p>Q4: Your answer: ${q4 || "none"} | Correct: ${answers.q4}</p>`;
-
-      const correctSet = new Set(answers.q5);
-      const userSet = new Set(q5);
-      if (correctSet.size === userSet.size && [...correctSet].every(x => userSet.has(x))) {
-        score++;
-      }
-      results += `<p>Q5: Your answer: ${q5.join(", ") || "none"} | Correct: ${answers.q5.join(", ")}</p>`;
-
-      results += `<h3>Total Score: ${score}/5</h3>`;
-      results += `<h3>Result: ${score >= 3 ? "Pass ✅" : "Fail ❌"}</h3>`;
-      document.getElementById("results").innerHTML = results;
-    }
-
-    function resetQuiz() {
-      document.getElementById("quizForm").reset();
-      document.getElementById("results").innerHTML = "";
+      if (document.querySelector('input[name="q1"]:checked')?.value === "a") score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === "c") score++;
+      if (document.querySelector('input[name="q3"]:checked')?.value === "b") score++;
+      alert("You scored " + score + " out of 3");
     }
   </script>
-
+</head>
+<body>
+  <header><h1>HTTP Quiz</h1></header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="modern.html">Modern</a>
+    <a href="history.html">History</a>
+    <a href="quiz.html">Quiz</a>
+    <a href="resources.html">Resources</a>
+  </nav>
+  <main>
+    <form>
+      <p><strong>1. What does HTTP stand for?</strong><br>
+        <input type="radio" name="q1" value="a"> HyperText Transfer Protocol<br>
+        <input type="radio" name="q1" value="b"> High Transfer Text Protocol<br>
+        <input type="radio" name="q1" value="c"> Home Transfer Tech Platform<br>
+      </p>
+      <p><strong>2. Which version introduced persistent connections?</strong><br>
+        <input type="radio" name="q2" value="a"> HTTP/0.9<br>
+        <input type="radio" name="q2" value="b"> HTTP/1.0<br>
+        <input type="radio" name="q2" value="c"> HTTP/1.1<br>
+      </p>
+      <p><strong>3. What protocol is used to secure HTTP?</strong><br>
+        <input type="radio" name="q3" value="a"> FTP<br>
+        <input type="radio" name="q3" value="b"> TLS<br>
+        <input type="radio" name="q3" value="c"> DNS<br>
+      </p>
+      <button type="button" onclick="gradeQuiz()">Submit</button>
+    </form>
+  </main>
 </body>
 </html>
